@@ -1,5 +1,6 @@
 # Form Generator
 
+[![main-check](https://github.com/RamiGaggi/rails-project-lvl1/actions/workflows/main-check.yml/badge.svg)](https://github.com/RamiGaggi/rails-project-lvl1/actions/workflows/main-check.yml)
 Form Generator is a library to create forms for site templates.
 
 ## Installation
