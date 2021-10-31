@@ -9,7 +9,7 @@ Form Generator is a library to create forms for site templates.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'hexlet_code'
+gem 'html_form_generator'
 ```
 
 And then execute:
@@ -18,11 +18,30 @@ $ make install
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+User = Struct.new(:id, :name, :job)
+user = User.new
+
+html = HtmlFormGenerator.form_for user, url: '/users' do |f|
+  f.input :name
+  f.input :job, as: :text
+  f.submit
+end
+
+puts html
+
+# <form action="/users" method="post">
+#   <label for="name">Name</label>
+#   <input name="name" value="" type="text">
+#   <label for="job">Job</label>
+#   <textarea cols="20" rows="40" name="job"></textarea>
+#   <input type="submit" value="Create">
+# </form>
+```
 
 ## Development
 
-To install dependencies `bin/setup`.
-To run the tests `make test` . You can also run `bin/console` for .
-An interactive prompt that will allow you to experiment `make console`
-Install this gem onto your local machine - run `bundle exec rake install`.
+1) To install dependencies `bin/setup`.
+2) To run the tests `make test` . You can also run `bin/console` for .
+3) An interactive prompt that will allow you to experiment `make console`
+4) Install this gem onto your local machine - run `bundle exec rake install`.

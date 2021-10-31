@@ -2,7 +2,7 @@ console:
 	@bundle exec bin/console;
 
 install:
-	@bundle exec bin/setup;
+	@bundle config set --local path .bundle && bundle install;
 
 test:
 	@bundle exec rspec;
