@@ -37,8 +37,5 @@ RSpec/NestedGroups:
 RSpec/MultipleDescribes:
   Enabled: false
 
-Naming/MethodParameterName:
-  Enabled: false
-
 RSpec/ExampleLength:
   Enabled: false

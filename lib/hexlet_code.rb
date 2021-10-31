@@ -44,13 +44,13 @@ module HexletCode
       @tags = []
     end
 
-    def input(attribute, as: :input, **attributes)
-      tag = if as == :input
-              Tag.build('input', name: attribute, type: 'text', value: @user.public_send(attribute), **attributes)
+    def input(value, **attributes)
+      tag = if attributes.delete(:as) == :text
+              Tag.build('textarea', cols: 20, rows: 40, name: value, **attributes) { @user.public_send(value) }
             else
-              Tag.build('textarea', cols: 20, rows: 40, name: attribute, **attributes) { @user.public_send(attribute) }
+              Tag.build('input', name: value, type: 'text', value: @user.public_send(value), **attributes)
             end
-      @tags << Tag.build('label', for: attribute) { attribute.capitalize }
+      @tags << Tag.build('label', for: value) { value.capitalize }
       @tags << tag
     end
 
