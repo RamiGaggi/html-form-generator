@@ -15,7 +15,7 @@ RSpec.describe HexletCode do
       it "returns form" do
         html_form = described_class.form_for user, url: url do |f|
           f.input :name
-          f.input :job, as: :text
+          f.input :job, as: :text, class: "btn"
           f.submit "Ok"
         end
         expect(html_form).to eq(file.read)
