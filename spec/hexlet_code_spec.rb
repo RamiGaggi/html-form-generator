@@ -8,7 +8,7 @@ RSpec.describe HexletCode do
   describe ".form_for" do
     context "with given user" do
       let(:abstract_user) { Struct.new(:name, :job, :gender, keyword_init: true) }
-      let(:user) { abstract_user.new name: "rob", job: "hexlet", gender: "m" }
+      let(:user) { abstract_user.new name: "ramil", job: "engineer", gender: "m" }
       let(:url) { "/users" }
       let(:file) { File.new("./spec/fixtures/html_tag.html", "r") }
 
@@ -16,6 +16,7 @@ RSpec.describe HexletCode do
         html_form = described_class.form_for user, url: url do |f|
           f.input :name
           f.input :job, as: :text
+          f.submit "Ok"
         end
         expect(html_form).to eq(file.read)
       end
