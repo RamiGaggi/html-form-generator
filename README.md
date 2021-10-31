@@ -1,6 +1,7 @@
 # Form Generator
 
 [![main-check](https://github.com/RamiGaggi/rails-project-lvl1/actions/workflows/main-check.yml/badge.svg)](https://github.com/RamiGaggi/rails-project-lvl1/actions/workflows/main-check.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/9e621a0a9939c3154a02/maintainability)](https://codeclimate.com/github/RamiGaggi/rails-project-lvl1/maintainability)
+
 Form Generator is a library to create forms for site templates.
 
 ## Installation
