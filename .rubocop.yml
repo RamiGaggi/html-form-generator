@@ -19,3 +19,12 @@ Layout/LineLength:
 
 Metrics/BlockLength:
   IgnoredMethods: ['describe', 'context']
+
+RSpec/NestedGroups:
+  Max: 5
+
+RSpec/MultipleDescribes:
+  Enabled: false
+
+Naming/MethodParameterName:
+  Enabled: false
