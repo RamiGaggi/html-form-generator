@@ -44,12 +44,18 @@ module HexletCode
       @tags = []
     end
 
-    def input(attribute, as: :input) # <- Check this!!!
-      @tags << if as == :input
-                 Tag.build("input", name: attribute, type: "text", value: @user.public_send(attribute))
-               else
-                 Tag.build("textarea", cols: 20, rows: 40, name: attribute) { @user.public_send(attribute) }
-               end
+    def input(attribute, as: :input)
+      tag = if as == :input
+              Tag.build("input", name: attribute, type: "text", value: @user.public_send(attribute))
+            else
+              Tag.build("textarea", cols: 20, rows: 40, name: attribute) { @user.public_send(attribute) }
+            end
+      @tags << Tag.build("label", for: attribute) { attribute.capitalize }
+      @tags << tag
+    end
+
+    def submit(value = "Save")
+      @tags << Tag.build("input", name: "commit", type: "submit", value: value)
     end
 
     def generate
