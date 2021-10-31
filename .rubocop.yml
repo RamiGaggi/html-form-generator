@@ -28,3 +28,6 @@ RSpec/MultipleDescribes:
 
 Naming/MethodParameterName:
   Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
