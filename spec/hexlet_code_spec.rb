@@ -5,7 +5,26 @@ RSpec.describe HexletCode do
     expect(HexletCode::VERSION).not_to be nil
   end
 
-  describe HexletCode::Tag do
+  describe ".form_for" do
+    context "with given user" do
+      let(:abstract_user) { Struct.new(:name, :job, :gender, keyword_init: true) }
+      let(:user) { abstract_user.new name: "rob", job: "hexlet", gender: "m" }
+      let(:url) { "/users" }
+      let(:file) { File.new("./spec/fixtures/html_tag.html", "r") }
+
+      it "returns form" do
+        html_form = described_class.form_for user, url: url do |f|
+          f.input :name
+          f.input :job, as: :text
+        end
+        expect(html_form).to eq(file.read)
+      end
+    end
+  end
+end
+
+RSpec.describe HexletCode::Tag do
+  describe ".build" do
     context "with given self-closing tag" do
       it "returns self-closing tag" do
         expect(described_class.build("br")).to eq("<br>")
