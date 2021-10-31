@@ -8,7 +8,7 @@ AllCops:
 
 Style/StringLiterals:
   Enabled: true
-  EnforcedStyle: double_quotes
+  EnforcedStyle: single_quotes
 
 Style/StringLiteralsInInterpolation:
   Enabled: true
@@ -18,7 +18,18 @@ Layout/LineLength:
   Max: 120
 
 Metrics/BlockLength:
-  IgnoredMethods: ['describe', 'context']
+  CountComments: false
+  Max: 5
+  IgnoredMethods:
+    - context
+    - describe
+    - it
+    - shared_examples
+    - shared_examples_for
+    - namespace
+    - draw
+    - configure
+    - group
 
 RSpec/NestedGroups:
   Max: 5

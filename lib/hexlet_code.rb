@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "hexlet_code/version"
+require_relative 'hexlet_code/version'
 
 # Generates HTML form
 module HexletCode
@@ -17,8 +17,8 @@ module HexletCode
     end
 
     def build_tag(tag, attributes)
-      incomplete_tag = ["<", tag]
-      attributes == " " ? (incomplete_tag << ">").join : (incomplete_tag << attributes << ">").join
+      incomplete_tag = ['<', tag]
+      attributes == ' ' ? (incomplete_tag << '>').join : (incomplete_tag << attributes << '>').join
     end
   end
 
@@ -27,7 +27,7 @@ module HexletCode
     extend SelfClosingTag
 
     def self.build(tag, **attributes)
-      attributes = ([""] << attributes.map { |key, el| "#{key}=\"#{el}\"" }).join(" ")
+      attributes = ([''] << attributes.map { |key, el| "#{key}=\"#{el}\"" }).join(' ')
       first_tag = build_tag(tag, attributes)
       if self_closing?(tag)
         first_tag
@@ -46,16 +46,16 @@ module HexletCode
 
     def input(attribute, as: :input, **attributes)
       tag = if as == :input
-              Tag.build("input", name: attribute, type: "text", value: @user.public_send(attribute), **attributes)
+              Tag.build('input', name: attribute, type: 'text', value: @user.public_send(attribute), **attributes)
             else
-              Tag.build("textarea", cols: 20, rows: 40, name: attribute, **attributes) { @user.public_send(attribute) }
+              Tag.build('textarea', cols: 20, rows: 40, name: attribute, **attributes) { @user.public_send(attribute) }
             end
-      @tags << Tag.build("label", for: attribute) { attribute.capitalize }
+      @tags << Tag.build('label', for: attribute) { attribute.capitalize }
       @tags << tag
     end
 
-    def submit(value = "Save")
-      @tags << Tag.build("input", name: "commit", type: "submit", value: value)
+    def submit(value = 'Save')
+      @tags << Tag.build('input', name: 'commit', type: 'submit', value: value)
     end
 
     def generate
@@ -67,9 +67,9 @@ module HexletCode
     end
   end
 
-  def self.form_for(user, url: "#")
+  def self.form_for(user, url: '#')
     user_form = UserFormBody.new(user)
     yield user_form
-    Tag.build("form", action: url, method: "post") { user_form.empty? ? "" : "\n#{user_form.generate}\n" }
+    Tag.build('form', action: url, method: 'post') { user_form.empty? ? '' : "\n#{user_form.generate}\n" }
   end
 end
