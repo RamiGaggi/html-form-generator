@@ -1,15 +1,14 @@
 # frozen_string_literal: true
 
-require_relative 'lib/hexlet_code/version'
+require_relative 'lib/html_form_generator/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'hexlet_code'
-  spec.version       = HexletCode::VERSION
+  spec.name          = 'html_form_generator'
+  spec.version       = HtmlFormGenerator::VERSION
   spec.authors       = ['Ramil Gadzhiev']
   spec.email         = ['rami.gaggi@gmail.com']
 
   spec.summary       = 'Form generator'
-  spec.description   = 'Write a longer description or delete this line.'
 
   spec.required_ruby_version = '>= 3.0.0'
 

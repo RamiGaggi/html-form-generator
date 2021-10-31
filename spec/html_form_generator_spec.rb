@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-RSpec.describe HexletCode do
+RSpec.describe HtmlFormGenerator do
   it 'has a version number' do
-    expect(HexletCode::VERSION).not_to be nil
+    expect(HtmlFormGenerator::VERSION).not_to be nil
   end
 
   describe '.form_for' do
@@ -24,7 +24,7 @@ RSpec.describe HexletCode do
   end
 end
 
-RSpec.describe HexletCode::Tag do
+RSpec.describe HtmlFormGenerator::Tag do
   describe '.build' do
     context 'with given self-closing tag' do
       it 'returns self-closing tag' do

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'hexlet_code'
+require 'html_form_generator'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
